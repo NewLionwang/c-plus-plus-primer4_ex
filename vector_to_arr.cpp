@@ -16,7 +16,7 @@ int main()
     cout << "Enter numbers:(ctrl+d to end)" << endl;
     while(cin >> ival)
         ivec.push_back(ival);
-    int *pia  = new int(ivec.size());
+    int *pia  = new int[ivec.size()];
 
     int *tp = pia;
     for(vector<int>::iterator iter = ivec.begin();
