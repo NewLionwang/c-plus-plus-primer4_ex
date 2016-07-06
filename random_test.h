@@ -6,6 +6,7 @@
  ************************************************************************/
 
 #include<iostream>
+#include<list>
 #include<string>
 #include<cstring>
 #include<stdio.h>
@@ -16,10 +17,15 @@ using namespace std;
 class Test
 {
 public:
+    long tmpdd;
     int random1();
     int random2();
+    long getrid(); 
 
-    long int randomid()
+    Test():tmpdd(randomid())
+    {}
+
+    long randomid()
     {
         char randid[7];//MMSSXY
         memset(randid, 0, 7);
@@ -34,7 +40,17 @@ public:
         long int rand = random()%100;
         snprintf(randid,7,"%s%02d",mmss,(int)rand);
 
+        //cout << randid <<"\n";
         long rid = atol(randid);
-        return ++rid;
+        return rid;
+    }
+
+    string convert(long tmp)
+    {
+        char randomtmp[7];
+        memset(randomtmp,0,7);
+        snprintf(randomtmp,7,"%06ld",(int)tmpdd);
+        string lastret = randomtmp;
+        return randomtmp;
     }
 };
