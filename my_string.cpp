@@ -25,6 +25,7 @@ inline String::String(const char* str )
 {
     if(str)
     {
+        cout << "构造函数调用" << '\n';
         m_data = new char[strlen(str)+1];
         strcpy(m_data,str);
     }
@@ -37,6 +38,7 @@ inline String::String(const char* str )
 
 inline String::String(const String &other)
 {
+    cout << "拷贝构造调用" << '\n';
     m_data = new char[strlen(other.m_data)+1];
     strcpy(m_data,other.m_data);
 }
@@ -71,11 +73,13 @@ int main()
 {
     char* p = "hello world";
     String s1("good job");
-    String s(p);
+    cout << '1'<< "\n";
+    String s(s1);
+    String s2(p);
     cout << s << endl;
     cout << s1 << endl;
     
-    s1 = s;
+    s1 = s2;
     cout << s << endl << s1 << endl;
     return 0;
 }
